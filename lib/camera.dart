@@ -127,12 +127,25 @@ class _CameraViewState extends State<CameraView> {
 
   Widget _body() {
     Widget body;
-    if (_mode == ScreenMode.liveFeed) {
-      body = _liveFeedBody();
-    } else {
-      body = _galleryBody();
-    }
-    return body;
+  if (_mode == ScreenMode.liveFeed) {
+    body = _liveFeedBody();
+  } else {
+    body = _galleryBody();
+  }
+  return Column(
+    children: [
+      Expanded(child: body),
+      if (widget.text != null)
+        Container(
+          color: Colors.black,
+          padding: EdgeInsets.all(10),
+          child: Text(
+            widget.text!,
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+    ],
+  );
   }
 
   Widget _liveFeedBody() {

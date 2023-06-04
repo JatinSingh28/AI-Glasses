@@ -1,3 +1,4 @@
+import 'package:ai_glasses/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'dart:io';
@@ -6,6 +7,7 @@ import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:ai_glasses/cam.dart';
 import 'package:ai_glasses/object_detection.dart';
 import 'package:ai_glasses/detail.dart';
+import 'package:ai_glasses/text_to_speech.dart';
 
 late List<CameraDescription> cameras;
 
@@ -36,45 +38,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // late CameraController controller;
-  // final FaceDetector _faceDetector = FaceDetector(
-  //   options: FaceDetectorOptions(
-  //     enableContours: true,
-  //     enableClassification: true,
-  //   ),
-  // );
-  // bool _canProcess = true;
-  // bool _isBusy = false;
-  // CustomPaint? _customPaint;
-  // String? _text;
-  // void initState() {
-  //   super.initState();
-  //   controller = CameraController(
-  //     cameras[0],
-  //     ResolutionPreset.max,
-  //     imageFormatGroup: Platform.isAndroid
-  //         ? ImageFormatGroup.nv21 // for Android
-  //         : ImageFormatGroup.bgra8888,
-  //   );
-  //   controller.initialize().then((_) {
-  //     if (!mounted) {
-  //       return;
-  //     }
-  //     setState(() {});
-  //   }).catchError((Object e) {
-  //     if (e is CameraException) {
-  //       switch (e.code) {
-  //         case 'CameraAccessDenied':
-  //           // Handle access errors here.
-  //           break;
-  //         default:
-  //           // Handle other errors here.
-  //           break;
-  //       }
-  //     }
-  //   });
-  // }
-
   InputImage? _inputImageFromCameraImage(CameraImage image) {
     // get camera rotation
     final camera = cameras[0];
@@ -158,7 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   flex: 2,
                   child: SizedBox(
-                    height: 350,
+                    height: 100,
+                    // width:30,
                     child: ButtonBar(
                       children: [
                         ElevatedButton(
@@ -178,6 +142,24 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Text('Image'),
                         ),
+                        
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        const TextToSpeech()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          child: Text('Speech'),
+                        ),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(
@@ -195,6 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Text('Object '),
                         ),
+                        
                       ],
                     ),
                   ),
@@ -238,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30),
-                          child: Text("Info",
+                          child: Text("",
                               style: TextStyle(
                                 color: Colors.black45,
                                 fontSize: 20.0,
@@ -247,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 30.0, vertical: 30.0),
-                          child: Text("Some text",
+                          child: Text("",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 16.0,
@@ -260,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          const DetailPage()));
+                                           DetailPage()));
                             },
                             child: Container(
                               alignment: Alignment.center,

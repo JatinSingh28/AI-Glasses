@@ -33,7 +33,7 @@ class DetailPage extends StatelessWidget {
                 ),
                 Container(
                   margin:const EdgeInsets.symmetric(horizontal: 30.0,vertical: 30.0),
-                  child:const Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",style: TextStyle(
+                  child:const Text("AI Glasses, also known as smart glasses or augmented reality glasses, are wearable devices that integrate artificial intelligence and advanced technologies to provide users with an enhanced and interactive experience. These glasses combine the functionality of traditional eyewear with cutting-edge features that leverage computer vision, machine learning, and augmented reality (AR) capabilities",style: TextStyle(
                     color: Colors.black38,
                     letterSpacing: 0.8,
                     height: 1.5,
