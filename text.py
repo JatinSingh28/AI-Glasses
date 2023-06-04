@@ -19,4 +19,4 @@ def send_text(text):
 def msg():
     say("What is your message")
     text = listen()
-    send_text("-1")
+    send_text(text)

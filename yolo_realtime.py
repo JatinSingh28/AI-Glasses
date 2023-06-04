@@ -23,11 +23,11 @@ def detect(num=100):
 
     # Loading web cam
     camera = cv2.VideoCapture(0)
-    global frame
+    # global frame
     
-    while time.time() - start_time < 30:
+    while time.time() - start_time < 50:
         _, img = camera.read()
-        frame=img
+        # frame=img
         height, width, channels = img.shape
 
         # Detecting objects
