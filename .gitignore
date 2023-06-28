@@ -4,3 +4,7 @@ __MACOSX
 A3DS*
 yolov3.weights
 NLP*
+.vector_cache
+config.py
+img_caption.py
+face_detector.py
